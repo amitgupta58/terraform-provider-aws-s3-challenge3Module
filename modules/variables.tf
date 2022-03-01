@@ -9,11 +9,22 @@
 variable "bucket" {
   description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."
   type        = string
-  default     = null
+  default     = "bucket2delete-12345234"
 }
 
 variable "region" {
   description = "The region where the resources are created."
   default     = "us-east-1"
+  
+   validation {
+    condition = contains(
+      ["australiaeast", "australiasoutheast", "australiacentral1", "us-east-1"],
+      var.location
+    )
+    error_message = "Err: location is not valid."
+  }
+  
 }
+
+
 
