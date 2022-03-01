@@ -14,11 +14,11 @@ variable "bucket" {
 
 variable "region" {
   description = "The region where the resources are created."
-  default     = "us-east-1"
+  default     = "ap-south-1"
   
    validation {
     condition = contains(
-      ["australiaeast", "australiasoutheast", "australiacentral1", "us-east-1"],
+      ["australiaeast", "australiasoutheast", "australiacentral1", "us-east-1", "ap-south-1"],
       var.location
     )
     error_message = "Err: location is not valid."
